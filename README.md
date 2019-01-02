@@ -17,8 +17,6 @@ For more information about how the protocols work in this scenario and other sce
 
 > This sample has been updated to ASP.NET Core 2.0. Looking for previous versions of this code sample? Check out the tags on the [ASP.NET Core 1.0](./tree/aspnet10) branch.
 
-> This sample is for Azure AD v1.0. If you are looking for an Azure AD v2.0 sample (to sign-in users with Work and School accounts **and Microsoft Personal accounts**, please look at [active-directory-aspnetcore-webapp-openidconnect-v2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2)
-
 ### User experience
 The web API, **TodoListService**, maintains an in-memory collection of to-do items per authenticated user. The authenticated user carries the same to-do list across multiple instances of the web app in this sample as well as native clients like the [.NET native (WPF) client](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore).
 
@@ -37,7 +35,6 @@ On subsequent returns to the web app, the user's session is persisted locally in
 
 > [!NOTE] 
 > If you want to run this sample on **Azure Government**, see the "Azure Government Deviations" section at the bottom of this page.
-
 
 ### Pre-requisites
 
@@ -116,7 +113,7 @@ Explore the sample by signing in into the web app, clicking on "Todo List", sign
 > [!NOTE]
 > The To Do list is stored in memory in this sample. Each time the TodoListService API is stopped, any to-do lists are reset.
 
-## How was the code created?
+## How the code was created?
 ### Code for the service
 The code for the service is exactly the same as the service used in the [active-directory-dotnet-native-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore#how-the-code-was-created) sample. Please refer to that sample for more information.
 

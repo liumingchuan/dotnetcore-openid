@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System;
 using System.Linq;
 using System.Security.Claims;
 using TodoListService.Models;
@@ -18,7 +19,7 @@ namespace TodoListService.Controllers
         [HttpGet]
         public IEnumerable<TodoItem> Get()
         {
-            string owner = (User.FindFirst(ClaimTypes.NameIdentifier))?.Value;
+            string owner = (User?.FindFirst(ClaimTypes.NameIdentifier))?.Value;
             return todoStore.Where(t => t.Owner == owner).ToList();
         }
 
@@ -26,7 +27,7 @@ namespace TodoListService.Controllers
         [HttpPost]
         public void Post([FromBody]TodoItem Todo)
         {
-            string owner = (User.FindFirst(ClaimTypes.NameIdentifier))?.Value;
+            string owner = (User?.FindFirst(ClaimTypes.NameIdentifier))?.Value;
             todoStore.Add(new TodoItem { Owner = owner, Title = Todo.Title });
         }
     }
