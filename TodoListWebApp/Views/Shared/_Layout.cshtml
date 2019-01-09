@@ -35,7 +35,9 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
                     <li><a asp-area="" asp-controller="Todo" asp-action="Index">Todo List</a></li>
                 </ul>
-                @await Html.PartialAsync("_LoginPartial")
+                <environment exclude="Development">
+                    @await Html.PartialAsync("_LoginPartial")
+                </environment>
             </div>
         </div>
     </nav>
