@@ -48,7 +48,10 @@ namespace WebApp_OpenIDConnect_DotNet {
             services.AddSession ();
         }
 
-        public void ConfigureDevelopment (IApplicationBuilder app, IHostingEnvironment env) {
+        public void ConfigureDevelopment (IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory) {
+            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
+            loggerFactory.AddDebug();
+
             app.UseDeveloperExceptionPage ();
             app.UseStaticFiles ();
 

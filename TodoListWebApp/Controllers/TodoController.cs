@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using Newtonsoft.Json;
 using TodoListWebApp.Models;
@@ -15,8 +16,16 @@ using TodoListWebApp.Models;
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace TodoListWebApp.Controllers {
+
     [Authorize]
     public class TodoController : Controller {
+
+        public TodoController(ILogger<TodoController> logger) {
+            Logger = logger;
+        }
+
+        public ILogger Logger { get; }
+
         // GET: /<controller>/
         public async Task<IActionResult> Index () {
             AuthenticationResult result = null;
@@ -33,10 +42,11 @@ namespace TodoListWebApp.Controllers {
                     ClientCredential credential = new ClientCredential (AzureAdOptions.Settings.ClientId, AzureAdOptions.Settings.ClientSecret);
                     result = await authContext.AcquireTokenSilentAsync (AzureAdOptions.Settings.TodoListResourceId, credential, new UserIdentifier (userObjectID, UserIdentifierType.UniqueId));
                 }
-
+                
                 // Retrieve the user's To Do List.
                 HttpClient client = new HttpClient ();
                 HttpRequestMessage request = new HttpRequestMessage (HttpMethod.Get, AzureAdOptions.Settings.TodoListBaseAddress + "/api/todolist");
+                Logger.LogDebug("API URL: {0}", request.RequestUri.ToString());
                 if (result != null) {
                     request.Headers.Authorization = new AuthenticationHeaderValue ("Bearer", result.AccessToken);
                 }
