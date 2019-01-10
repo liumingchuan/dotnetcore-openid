@@ -46,7 +46,8 @@ namespace TodoListWebApp.Controllers {
                 // Retrieve the user's To Do List.
                 HttpClient client = new HttpClient ();
                 HttpRequestMessage request = new HttpRequestMessage (HttpMethod.Get, AzureAdOptions.Settings.TodoListBaseAddress + "/api/todolist");
-                Logger.LogDebug("API URL: {0}", request.RequestUri.ToString());
+                Logger.LogInformation("API URL: {0}", request.RequestUri.ToString());
+                System.Diagnostics.Trace.WriteLine("API URL: {0}", request.RequestUri.ToString());
                 if (result != null) {
                     request.Headers.Authorization = new AuthenticationHeaderValue ("Bearer", result.AccessToken);
                 }
