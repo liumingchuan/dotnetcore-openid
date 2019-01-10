@@ -24,6 +24,7 @@ namespace WebApp_OpenIDConnect_DotNet {
                     .Build ();
             });
 
+            System.Diagnostics.Trace.WriteLine("Configuring services in Development");
             AzureAdOptions opts = new AzureAdOptions ();
             Configuration.Bind ("AzureAd", opts);
             AzureAdOptions.Settings = opts;
@@ -43,6 +44,7 @@ namespace WebApp_OpenIDConnect_DotNet {
                 })
                 .AddCookie ();
 
+            System.Diagnostics.Trace.WriteLine("Configuring services in Production");
             services.AddMvc ()
                 .AddSessionStateTempDataProvider ();
             services.AddSession ();
