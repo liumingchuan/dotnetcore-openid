@@ -1,6 +1,6 @@
 using System;
-using System.Text;
 using System.Collections.ObjectModel;
+using System.Text;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -11,7 +11,7 @@ namespace TodoListWebApp.Tests.UnitTests {
 
     [TestClass]
     public class TodoListPageTests {
-        
+
         private IWebDriver driver;
         private string appURL;
 
@@ -34,7 +34,7 @@ namespace TodoListWebApp.Tests.UnitTests {
                     break;
                 }
             }
-            Assert.IsTrue(found, "Verified add item");
+            Assert.IsTrue (found, "Verified add item");
         }
 
         [TestInitialize ()]
@@ -44,13 +44,17 @@ namespace TodoListWebApp.Tests.UnitTests {
             string browser = "Chrome";
             switch (browser) {
                 case "Firefox":
-                    driver = new FirefoxDriver ();
+                    FirefoxOptions opts = new FirefoxOptions ();
+                    opts.AddArguments("--headless");
+                    driver = new FirefoxDriver (opts);
                     break;
                 case "IE":
                     driver = new InternetExplorerDriver ();
                     break;
                 default:
-                    driver = new ChromeDriver ();
+                    ChromeOptions options = new ChromeOptions ();
+                    options.AddArguments ("headless");
+                    driver = new ChromeDriver (options);
                     break;
             }
 
