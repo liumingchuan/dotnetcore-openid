@@ -11,7 +11,7 @@ namespace TodoListWebApp.Tests.UnitTests {
 
     [TestClass]
     public class TodoListPageTests {
-        private TestContext testContextInstance;
+        
         private IWebDriver driver;
         private string appURL;
 

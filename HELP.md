@@ -21,4 +21,9 @@ $env:VSTEST_HOST_DEBUG=1
 For more information, refer to [Debugging .NET Core Projects with Visual Studio Code](https://medium.com/@mikezrimsek/debugging-dotnet-core-projects-with-visual-studio-code-ff0ab66ecc70).
 
 ## UI Tests with Selenium
-Refer to [Selenium .NET Class Reference](https://seleniumhq.github.io/selenium/docs/api/dotnet/).
+Refer to [Selenium .NET Class Reference](https://seleniumhq.github.io/selenium/docs/api/dotnet/) to create the UI test cases.
+Refer to [UI Test with Selenium in Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/pipelines/test/continuous-test-selenium?view=vsts).
+Must add the below in console options to enable Microsoft hosted agent to run UI tests against .NET Core 2.0
+```console
+/Framework:.NETCoreApp,Version=v2.1
+```
