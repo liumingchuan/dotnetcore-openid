@@ -52,7 +52,7 @@ namespace WebApp_OpenIDConnect_DotNet {
 
         public void ConfigureDevelopment (IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory) {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
+            loggerFactory.AddDebug(LogLevel.Trace);
 
             app.UseDeveloperExceptionPage ();
             app.UseStaticFiles ();
