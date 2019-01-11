@@ -3,10 +3,14 @@
 parameters:
   name: ''
   project: ''
+  buildConfiguration: ''
   artifactName: ''
+  vmImage: ''
 
 jobs:
 - job: ${{ parameters.name }}
+  pool:
+    vmImage: ${{ parameters.vmImage }}
   steps:
   - task: DotNetCoreInstaller@0
     displayName: 'Use .NET Core sdk 2.0.3'
@@ -23,7 +27,7 @@ jobs:
     displayName: Build
     inputs:
       projects: '${{ parameters.project }}'
-      arguments: '--configuration $(BuildConfiguration)'
+      arguments: '--configuration ${{ parameters.buildConfiguration }}'
 
   - task: DotNetCoreCLI@2
     displayName: Publish
@@ -31,7 +35,7 @@ jobs:
       command: publish
       publishWebProjects: false
       projects: '${{ parameters.project }}'
-      arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+      arguments: '--configuration ${{ parameters.buildConfiguration }} --output $(Build.ArtifactStagingDirectory)'
 
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifact'

@@ -6,4 +6,6 @@ jobs:
   parameters:
     name: Build Web App
     project: '**/TodoListWebApp/*.csproj'
+    buildConfiguration: Debug
     artifactName: TodoList.WebApp
+    vmImage: 'vs2017-win2016'
