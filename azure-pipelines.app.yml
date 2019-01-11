@@ -3,7 +3,6 @@ resources:
 phases:
 - phase: Compile
   displayName: Build Web App
-
   condition: succeeded()
   queue:
     name: Hosted VS2017

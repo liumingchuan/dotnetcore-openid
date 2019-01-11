@@ -8,6 +8,8 @@ service: ASP.NET Core 2.0
 endpoint: AAD V1
 ---
 # Calling a web API in an ASP.NET Core web application using Azure AD
+[![Build Status](https://chulam.visualstudio.com/CloudWorkshopTodo/_apis/build/status/Build%20Web%20App?branchName=master)](https://chulam.visualstudio.com/CloudWorkshopTodo/_build/latest?definitionId=9?branchName=master)
+
 ## About this sample
 ### Scenario
 This sample contains a web API running on ASP.NET Core 2.0 protected by Azure AD. The web API is accessed by an ASP.NET Core 2.0 web application on behalf of the signed-in user. The ASP.NET Web application uses the OpenID Connect middleware and the Active Directory Authentication Library (ADAL.NET) to obtain a JWT bearer token for the signed-in user using the [OAuth 2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-protocols-oauth-code) protocol. The bearer token is passed to the web API, which validates the token and authorizes the user using the JWT bearer authentication middleware.
