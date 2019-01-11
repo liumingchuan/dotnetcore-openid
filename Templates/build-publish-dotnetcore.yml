@@ -3,7 +3,7 @@
 parameters:
   name: ''
   project: ''
-  artifact-name: ''
+  artifactName: ''
 
 jobs:
 - job: ${{ parameters.name }}
@@ -37,4 +37,4 @@ jobs:
     displayName: 'Publish Artifact'
     inputs:
       PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-      ArtifactName: ${{ parameters.artifact-name }}
+      ArtifactName: ${{ parameters.artifactName }}

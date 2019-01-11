@@ -6,4 +6,4 @@ jobs:
   parameters:
     name: Build Web App
     project: '**/TodoListWebApp/*.csproj'
-    artifact-name: TodoList.WebApp
+    artifactName: TodoList.WebApp
