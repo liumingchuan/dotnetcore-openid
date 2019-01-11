@@ -1,0 +1,9 @@
+trigger:
+  batch: true
+
+jobs:
+- template: Templates/build-publish-dotnetcore.yml
+  parameters:
+    name: Build Web App
+    project: '**/TodoListWebApp/*.csproj'
+    artifact-name: TodoList.WebApp
