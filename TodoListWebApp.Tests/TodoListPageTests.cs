@@ -40,21 +40,25 @@ namespace TodoListWebApp.Tests.UnitTests {
         [TestInitialize ()]
         public void SetupTest () {
             appURL = "https://mcw-todo-app.azurewebsites.net";
+            string driverLocation;
 
             string browser = "Chrome";
             switch (browser) {
                 case "Firefox":
                     FirefoxOptions opts = new FirefoxOptions ();
-                    opts.AddArguments("--headless");
-                    driver = new FirefoxDriver (opts);
+                    opts.AddArguments ("--headless");
+                    driverLocation = Environment.GetEnvironmentVariable ("GeckoWebDriver");
+                    driver = driverLocation == null ? new FirefoxDriver (driverLocation, opts) : new FirefoxDriver (opts);
                     break;
                 case "IE":
-                    driver = new InternetExplorerDriver ();
+                    driverLocation = Environment.GetEnvironmentVariable ("IEWebDriver");
+                    driver = driverLocation == null ? new InternetExplorerDriver (driverLocation) : new InternetExplorerDriver ();
                     break;
                 default:
                     ChromeOptions options = new ChromeOptions ();
                     options.AddArguments ("headless");
-                    driver = new ChromeDriver (options);
+                    driverLocation = Environment.GetEnvironmentVariable ("ChromeWebDriver");
+                    driver = driverLocation == null ? new ChromeDriver (options) : new ChromeDriver (driverLocation, options);
                     break;
             }
 
