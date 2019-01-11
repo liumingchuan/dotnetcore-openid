@@ -4,6 +4,6 @@ trigger:
 jobs:
 - template: Templates/build-publish-dotnetcore.yml
   parameters:
-    name: Build Web App
+    name: BuildWebApp
     project: '**/TodoListWebApp/*.csproj'
     artifactName: TodoList.WebApp
