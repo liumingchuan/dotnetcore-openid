@@ -26,4 +26,4 @@ Refer to [UI Test with Selenium in Azure DevOps](https://docs.microsoft.com/en-u
 Must add the below in console options to enable Microsoft hosted agent to run UI tests against .NET Core 2.0
 ```console
 /Framework:.NETCoreApp,Version=v2.1
-```
+``` 
