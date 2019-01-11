@@ -2,10 +2,11 @@ trigger:
   batch: true
   branches:
     include:
-    - master/*
+    - master
   paths:
     exclude:
     - README.md
+    - HELP.md
 
 jobs:
 - template: Templates/build-publish-dotnetcore.yml
