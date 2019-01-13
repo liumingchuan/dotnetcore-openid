@@ -33,7 +33,7 @@ jobs:
     displayName: Publish
     inputs:
       command: publish
-      publishWebProjects: false
+      publishWebProjects: true
       projects: '${{ parameters.project }}'
       arguments: '--configuration ${{ parameters.buildConfiguration }} --output $(Build.ArtifactStagingDirectory)'
 
