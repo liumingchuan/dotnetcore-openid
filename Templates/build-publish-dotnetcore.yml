@@ -34,7 +34,7 @@ jobs:
     inputs:
       command: publish
       publishWebProjects: true
-      zipAfterPublish: false
+      zipAfterPublish: true
       projects: '${{ parameters.project }}'
       arguments: '--configuration ${{ parameters.buildConfiguration }} --output $(Build.ArtifactStagingDirectory)'
 
