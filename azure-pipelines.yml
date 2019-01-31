@@ -17,10 +17,9 @@ jobs:
     artifactName: TodoList.WebApp
     vmImage: 'vs2017-win2016'
  
- jobs:
- - template: Templates/build-test-publish-dotnetcore.yml
+- template: Templates/build-publish-dotnetcore.yml
   parameters:
-    name: BuildWebApp2
+    name: BuildWebApp
     project: '**/TodoListWebApp/*.csproj'
     buildConfiguration: Debug
     artifactName: TodoList.WebApp
